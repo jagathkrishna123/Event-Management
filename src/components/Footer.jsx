@@ -12,7 +12,7 @@ const Footer = () => {
   Wedding Bliss
 </h2>
           <p className="text-sm leading-relaxed">
-            Make your weddings memorable with premium event management, 
+            Make your weddings memorable with premium event management text, 
             professional service providers, and seamless booking experience.
           </p>
 
