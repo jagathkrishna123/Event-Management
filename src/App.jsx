@@ -22,15 +22,18 @@ import AuditoriumCreation from './pages/serviceProvider/AuditoriumCreation'
 import CateringCreation from './pages/serviceProvider/CateringCreation'
 import StageDecorationCreation from './pages/serviceProvider/StageDecorationCreation'
 import PhotographyCreation from './pages/serviceProvider/PhotographyCreation'
-import CategorySection from './components/CategorySection'
 import UserLayout from './pages/user/UserLayout'
 import ServicesCategory from './pages/user/ServicesCategory'
 import UserBookings from './pages/user/UserBookings'
-import Testimonials from './components/Testimonials'
-import NewsLetter from './components/NewsLetter'
+
 import MyServices from './pages/serviceProvider/MyServices'
 import EditPhotography from './pages/serviceProvider/EditPhotography'
 import EventShowcasebyCategory from './components/EventShowcasebyCategory'
+import EventDetailsPage from './components/EventDetailsPage'
+import EventBookingPage from './components/EventBookingPage'
+import Payment from './components/Payment'
+import BookingSuccess from './components/BookingSuccess'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   const { pathname } = useLocation();
@@ -41,6 +44,7 @@ const App = () => {
   const {showUserLogin, user} = useAppContext()
   return (
    <div>
+    <ScrollToTop/>
       {/* Navbar */}
       {!hideLayout && <Navbar />}
 
@@ -54,11 +58,12 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contactus />} />
           {/* <Route path="/services/:category" element={<ServicesCategory />} /> */}
-          <Route
-    path="/services/:category"
-    element={<EventShowcasebyCategory />}
-  />
-        
+          <Route path="/services/:category" element={<EventShowcasebyCategory />}/>
+          <Route path="/service/:category/:serviceId" element={<EventDetailsPage />}/>
+          <Route path="/book/:category/:serviceId" element={<EventBookingPage />}/>
+          <Route path="/payment" element={<Payment />}/>
+          <Route path="/booking-success" element={<BookingSuccess />}/>
+
           {/* user Route */}
 
           <Route path="/user" element={<UserLayout/>}>
@@ -96,9 +101,7 @@ const App = () => {
         {/* Footer only on non-admin & non-provider pages */}
         {user && (
   <>
-    <CategorySection />
-    <Testimonials />
-    <NewsLetter/>
+    
   </>
 )}
         {!hideLayout && <Footer />}

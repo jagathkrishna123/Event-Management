@@ -5,6 +5,9 @@ import Mainbg2 from "../assets/mainbg3.jpg";
 import Mainbg3 from "../assets/mainbg4.jpg";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import RotatingText from "./RotatingText";
+import CategorySection from "./CategorySection";
+import Testimonials from "./Testimonials";
+import NewsLetter from "./NewsLetter";
 
 const Home = () => {
   const backgrounds = [Mainbg, Mainbg2, Mainbg3]; // background images array
@@ -19,6 +22,7 @@ const Home = () => {
   }, []);
   return (
     // ------------ OUTER WRAPPER (Centers Everything) ------------
+    <>
     <div
       className="w-full min-h-screen bg-cover bg-center py-2 md:py-12 flex flex-col relative overflow-hidden transition-all duration-700"
       style={{
@@ -75,6 +79,10 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <CategorySection/>
+    <Testimonials/>
+    <NewsLetter/>
+    </>
   );
 };
 
